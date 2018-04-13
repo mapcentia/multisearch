@@ -2,14 +2,10 @@
 
 use \app\inc\Route;
 
-Route::add("extensions/multisearch/api/search/{user}/{uuid}",
+Route::add("extensions/multisearch/api/search/{db}/{schema}/{uuid}",
 
     function () {
-        $db = Route::getParam("user");
-        $dbSplit = explode("@", $db);
-        if (sizeof($dbSplit) == 2) {
-            $db = $dbSplit[1];
-        }
+        $db = Route::getParam("db");
         \app\models\Database::setDb($db);
     }
 

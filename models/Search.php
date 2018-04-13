@@ -17,16 +17,16 @@ class Search extends Model
 
     }
 
-    public function getUuid($uuid)
+    public function getUuid($schema, $uuid)
     {
         $model = new \app\models\Layer();
-        $layers = $model->getAll("feature", false);
+        $layers = $model->getAll($schema, false);
 
         foreach ($layers["data"] as $layer) {
 
             $rel = $layer["f_table_schema"] . "." . $layer["f_table_name"];
 
-            $sql = "SELECT * FROM {$rel} WHERE gid=:uuid";
+            $sql = "SELECT * FROM {$rel} WHERE uuid=:uuid";
 
             $res = $this->prepare($sql);
 

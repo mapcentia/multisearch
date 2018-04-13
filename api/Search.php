@@ -34,9 +34,9 @@ class Search extends \app\inc\Controller
 
         $search = new \app\extensions\multisearch\models\Search();
 
-        $res = $search->getUuid(Route::getParam("uuid"));
+        $res = $search->getUuid(Route::getParam("schema"), Route::getParam("uuid"));
 
-        $response['message'] = Route::getParam("uuid");
+        $response['message'] = "";
         $response['success'] = true;
         $response['data'] = $res;
 
