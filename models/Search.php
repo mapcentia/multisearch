@@ -41,7 +41,7 @@ class Search extends Model
 
                 }
             } catch (\PDOException $e) {
-                echo $e->getMessage();
+                //echo $e->getMessage();
             }
 
 
